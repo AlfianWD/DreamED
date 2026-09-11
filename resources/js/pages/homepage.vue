@@ -1,13 +1,14 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
 
+import Logo from "../../images/logo.png";
 import heroImage from "../../images/hero-student.png";
 import IconTech from "../../images/section_logo_teknologi.png";
 import IconClock from "../../images/section_logo_clock.png";
 import IconMateri from "../../images/section_logo_materi.png";
 import IconFile from "../../images/section_logo_file.png";
 import imageAbout from "../../images/Section_Image-About.png";
-import Logo from "../../images/logo.png";
+import IconHamburger from "../../images/icon_hamburger.svg";
 </script>
 
 <template>
@@ -16,11 +17,23 @@ import Logo from "../../images/logo.png";
         <nav
             class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-wrap items-center justify-between"
         >
+            <!-- Logo -->
             <img :src="Logo" alt="DreamED Logo" class="h-12 sm:h-16 w-auto" />
 
-            <ul
-                class="hidden sm:flex gap-6 md:gap-10 font-semibold text-gray-700"
-            >
+            <!-- Humberger_Menu -->
+            <section class="flex sm:hidden">
+                <a href="#" class="inline-block p-1">
+                    <div
+                        :src="IconHamburger"
+                        alt="Hamburger Menu"
+                        class="w-[30px] h-[30px] transition duration-300 bg-black hover:bg-purple-500 hover:scale-110 active:scale-90 cursor-pointer"
+                        :style="`mask: url(${IconHamburger}) no-repeat center / contain; -webkit-mask: url(${IconHamburger}) no-repeat center / contain;`"
+                    ></div>
+                </a>
+            </section>
+
+            <!-- Menu -->
+            <ul class="hidden sm:flex gap-6 font-semibold text-gray-700">
                 <li>
                     <a href="#home" class="hover:text-purple-500 transition"
                         >Home</a
@@ -38,6 +51,7 @@ import Logo from "../../images/logo.png";
                 </li>
             </ul>
 
+            <!-- Button_CTA -->
             <div
                 class="flex gap-2 sm:gap-3 mt-3 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end font-normals"
             >
