@@ -227,63 +227,73 @@ const isSidebarOpen = ref(false);
             </p>
 
             <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10 sm:mt-12 md:mt-16"
+                class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-10 sm:mt-12 md:mt-16"
             >
                 <div
-                    class="shadow-lg rounded-xl p-6 bg-white hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
+                    class="shadow-md sm:shadow-lg rounded-2xl p-4 sm:p-6 bg-white border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
                 >
                     <img
                         :src="IconTech"
                         alt="Leading Technology"
                         class="w-10 h-10 object-contain mb-2"
                     />
-                    <h3 class="font-bold text-lg mb-3 text-gray-800">
+                    <h3
+                        class="font-bold text-base sm:text-lg mb-2 text-gray-800"
+                    >
                         Leading Technology
                     </h3>
-                    <p class="text-gray-600">
+                    <p class="text-xs sm:text-sm leading-relaxed">
                         Advanced and responsive learning technology.
                     </p>
                 </div>
                 <div
-                    class="shadow-lg rounded-xl p-6 bg-white hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
+                    class="shadow-md sm:shadow-lg rounded-2xl p-4 sm:p-6 bg-white border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
                 >
                     <img
                         :src="IconMateri"
                         alt="Variety of Material"
                         class="w-10 h-10 object-contain mb-2"
                     />
-                    <h3 class="font-bold text-lg mb-3 text-gray-800">
+                    <h3
+                        class="font-bold text-base sm:text-lg mb-2 text-gray-800"
+                    >
                         Variety of Materials
                     </h3>
-                    <p class="text-gray-600">
+                    <p class="text-xs sm:text-sm leading-relaxed">
                         Access learning materials from various fields.
                     </p>
                 </div>
                 <div
-                    class="shadow-lg rounded-xl p-6 bg-white hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
+                    class="shadow-md sm:shadow-lg rounded-2xl p-4 sm:p-6 bg-white border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
                 >
                     <img
                         :src="IconClock"
                         alt="Flexsibility Time and Space"
                         class="w-10 h-10 object-contain mb-2"
                     />
-                    <h3 class="font-bold text-lg mb-3 text-gray-800">
+                    <h3
+                        class="font-bold text-base sm:text-lg mb-2 text-gray-800"
+                    >
                         Flexible Learning
                     </h3>
-                    <p class="text-gray-600">Learn anytime and anywhere.</p>
+                    <p class="text-xs sm:text-sm leading-relaxed">
+                        Learn anytime and anywhere.
+                    </p>
                 </div>
                 <div
-                    class="shadow-lg rounded-xl p-6 bg-white hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
+                    class="shadow-md sm:shadow-lg rounded-2xl p-4 sm:p-6 bg-white border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 duration-300"
                 >
                     <img
                         :src="IconFile"
                         alt="Free Certificate"
                         class="w-10 h-10 object-contain mb-2"
                     />
-                    <h3 class="font-bold text-lg mb-3 text-gray-800">
+                    <h3
+                        class="font-bold text-base sm:text-lg mb-2 text-gray-800"
+                    >
                         Free Certificate
                     </h3>
-                    <p class="text-gray-600">
+                    <p class="text-xs sm:text-sm leading-relaxed">
                         Earn certificates after completing courses.
                     </p>
                 </div>
