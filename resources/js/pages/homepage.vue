@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
+import { ref } from "vue";
 
 import Logo from "../../images/logo.png";
 import heroImage from "../../images/hero-student.png";
@@ -9,6 +10,13 @@ import IconMateri from "../../images/section_logo_materi.png";
 import IconFile from "../../images/section_logo_file.png";
 import imageAbout from "../../images/Section_Image-About.png";
 import IconHamburger from "../../images/icon_hamburger.svg";
+import ButtonSidebar from "../../images/button_back.svg";
+import IconHome from "../../images/icon_home.svg";
+import IconAbout from "../../images/icon_about.svg";
+import IconContact from "../../images/icon_contact.svg";
+
+//State to control open/close sidebar
+const isSidebarOpen = ref(false);
 </script>
 
 <template>
@@ -19,18 +27,6 @@ import IconHamburger from "../../images/icon_hamburger.svg";
         >
             <!-- Logo -->
             <img :src="Logo" alt="DreamED Logo" class="h-12 sm:h-16 w-auto" />
-
-            <!-- Humberger_Menu -->
-            <section class="flex sm:hidden">
-                <a href="#" class="inline-block p-1">
-                    <div
-                        :src="IconHamburger"
-                        alt="Hamburger Menu"
-                        class="w-[30px] h-[30px] transition duration-300 bg-black hover:bg-purple-500 hover:scale-110 active:scale-90 cursor-pointer"
-                        :style="`mask: url(${IconHamburger}) no-repeat center / contain; -webkit-mask: url(${IconHamburger}) no-repeat center / contain;`"
-                    ></div>
-                </a>
-            </section>
 
             <!-- Menu -->
             <ul class="hidden sm:flex gap-6 font-semibold text-gray-700">
@@ -53,7 +49,7 @@ import IconHamburger from "../../images/icon_hamburger.svg";
 
             <!-- Button_CTA -->
             <div
-                class="flex gap-2 sm:gap-3 mt-3 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end font-normals"
+                class="hidden sm:flex gap-2 sm:gap-3 mt-3 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end font-normals"
             >
                 <Link
                     class="border border-purple-500 text-purple-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
@@ -66,7 +62,104 @@ import IconHamburger from "../../images/icon_hamburger.svg";
                     Sign Up
                 </Link>
             </div>
+
+            <!-- Humberger_Menu -->
+            <section class="flex sm:hidden">
+                <button
+                    type="button"
+                    @click="isSidebarOpen = !isSidebarOpen"
+                    class="inline-block p-1 focus:outline-none"
+                >
+                    <div
+                        class="w-[30px] h-[30px] transition duration-300 bg-black hover:bg-purple-500 hover:scale-110 active:scale-90 cursor-pointer"
+                        :style="`mask: url(${IconHamburger}) no-repeat center / contain; -webkit-mask: url(${IconHamburger}) no-repeat center / contain;`"
+                    ></div>
+                </button>
+            </section>
         </nav>
+
+        <!-- Sidebar-Menu -->
+        <aside
+            id="sidebar-menu"
+            class="fixed sm:hidden top-0 right-0 w-64 z-40 h-full transition-transform duration-300 bg-amber-400 px-6 py-6"
+            :class="isSidebarOpen ? 'translate-x-0' : 'translate-x-full'"
+            aria-label="sidebar"
+        >
+            <!-- Tiitle Sidebar -->
+            <div class="flex item-center gap-3 font-semibold flex-wrap mb-10">
+                <button
+                    v-if="isSidebarOpen"
+                    @click="isSidebarOpen = false"
+                    class="justify-start w-[26px] h-[26px] py-1"
+                >
+                    <img :src="ButtonSidebar" alt="buttonSidebar" />
+                </button>
+                <h1 class="text-[22px]">SIDEBAR</h1>
+            </div>
+
+            <!-- Menu_Sidebar -->
+            <div class="flex-1 overflow-y-auto mb-10">
+                <ul class="flex flex-col gap-4 font-semibold text-black">
+                    <li>
+                        <a
+                            href="#home"
+                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                        >
+                            <div
+                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :style="`mask: url(${IconHome}) no-repeat center / contain; -webkit-mask: url(${IconHome}) no-repeat center / contain;`"
+                            ></div>
+                            <h3>Home</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#about"
+                            class="flex items-center gap-3 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                        >
+                            <div
+                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :style="`mask: url(${IconAbout}) no-repeat center / contain; -webkit-mask: url(${IconAbout}) no-repeat center / contain;`"
+                            ></div>
+                            <h3>About</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                        >
+                            <div
+                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
+                            ></div>
+                            <h3>Contact</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Button_CTA -->
+            <div class="flex item-center gap-6 m-4">
+                <Link
+                    class="border border-black text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
+                >
+                    Sign In
+                </Link>
+                <Link
+                    class="bg-black text-amber-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:text-white transition text-sm sm:text-base"
+                >
+                    Sign Up
+                </Link>
+            </div>
+        </aside>
+
+        <!-- Overlay Background -->
+        <div
+            v-if="isSidebarOpen"
+            @click="isSidebarOpen = false"
+            class="fixed inset-0 bg-black/25 z-30 sm:hidden"
+        ></div>
 
         <!-- Hero -->
         <section
