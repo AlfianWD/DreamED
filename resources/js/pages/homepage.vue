@@ -166,7 +166,7 @@ const isSidebarOpen = ref(false);
             id="home"
             class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 md:pt-16 grid lg:grid-cols-2 gap-8 items-center animate-fade-up"
         >
-            <div class="text-center lg:text-left">
+            <div class="sm:text-center lg:text-left p-10 mb-10">
                 <h1
                     class="text-4xl text-semibold text-shadow text-shadow-x-md text-shadow-y-md text-shadow-blur-5 sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
                 >
