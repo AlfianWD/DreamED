@@ -200,7 +200,7 @@ onUnmounted(() => {
         <button
             v-show="scrollBack"
             @click="scrollToTop"
-            class="fixed flex flex-col items-center gap-2 group bottom-20 right-10 sm:right-20 z-40 trasition-all duration-300 hover:scale-110 drop-shadow-sm"
+            class="fixed flex flex-col items-center gap-2 group bottom-10 right-10 sm:bottom-20 sm:right-20 z-40 trasition-all duration-300 hover:scale-110 drop-shadow-sm"
             aria-label="buttonScrolltoTop"
         >
             <i
