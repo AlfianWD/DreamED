@@ -21,9 +21,23 @@ const isSidebarOpen = ref(false);
 //State to control scroll
 const isScrolled = ref(false);
 
+// State Button Back to Up
+const scrollBack = ref(false);
+
 const handleScroll = () => {
     //State to actived glassmorphism effect if scroll > 20px
     isScrolled.value = window.scrollY > 20;
+
+    //State to check position scroll
+    scrollBack.value = window.scrollY > 20;
+};
+
+// Function to scroll back to top
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
 };
 
 onMounted(() => {
@@ -31,7 +45,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
@@ -181,6 +195,25 @@ onUnmounted(() => {
             @click="isSidebarOpen = false"
             class="fixed inset-0 bg-black/25 z-30 sm:hidden"
         ></div>
+
+        <!-- Button_Back-to-Top  -->
+        <button
+            v-show="scrollBack"
+            @click="scrollToTop"
+            class="fixed flex flex-col items-center gap-2 group bottom-20 right-10 sm:right-20 z-40 trasition-all duration-300 hover:scale-110 drop-shadow-sm"
+            aria-label="buttonScrolltoTop"
+        >
+            <i
+                class="fa-solid fa-circle-up text-[36px] text-amber-500 group-hover:text-amber-600 transition-color duration-300"
+            ></i>
+
+            <!-- Description -->
+            <span
+                class="bg-amber-400 font-semibold text-xs rounded-full px-1/2 p-2 group-hover:text-white transition-colors duration-300"
+            >
+                Back to Top
+            </span>
+        </button>
 
         <!-- Hero -->
         <section
