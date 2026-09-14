@@ -53,10 +53,10 @@ onUnmounted(() => {
     <div class="min-h-screen bg-white overflow-x-hidden">
         <!-- Navbar -->
         <nav
-            class="fixed top-0 z-40 left-0 right-0 flex flex-wrap items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6"
+            class="fixed top-0 z-40 left-0 right-0 flex flex-wrap items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-2"
             :class="[
                 isScrolled
-                    ? 'bg-white/30 backdrop-blur-md border-b border-white/20 shadow-lg rounded-full m-1'
+                    ? 'bg-white/30 backdrop-blur-md border-b border-white/20 shadow-lg rounded-full m-4'
                     : 'bg-transparent border-b border-transparent',
             ]"
         >
