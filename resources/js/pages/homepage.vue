@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 import Logo from "../../images/logo.png";
 import heroImage from "../../images/hero-student.png";
@@ -17,13 +17,34 @@ import IconContact from "../../images/icon_contact.svg";
 
 //State to control open/close sidebar
 const isSidebarOpen = ref(false);
+
+//State to control scroll
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+    //State to actived glassmorphism effect if scroll > 20px
+    isScrolled.value = window.scrollY > 20;
+};
+
+onMounted(() => {
+    window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.addEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden">
         <!-- Navbar -->
         <nav
-            class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-wrap items-center justify-between"
+            class="fixed top-0 z-40 left-0 right-0 flex flex-wrap items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6"
+            :class="[
+                isScrolled
+                    ? 'bg-white/30 backdrop-blur-md border-b border-white/20 shadow-lg rounded-full m-1'
+                    : 'bg-transparent border-b border-transparent',
+            ]"
         >
             <!-- Logo -->
             <img :src="Logo" alt="DreamED Logo" class="h-12 sm:h-16 w-auto" />
@@ -64,7 +85,7 @@ const isSidebarOpen = ref(false);
             </div>
 
             <!-- Humberger_Menu -->
-            <section class="flex sm:hidden">
+            <section class="flex items-end sm:hidden">
                 <button
                     type="button"
                     @click="isSidebarOpen = !isSidebarOpen"
