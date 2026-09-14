@@ -1,3 +1,4 @@
+import "../css/app.css";
 import "./bootstrap";
 
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
@@ -14,7 +15,7 @@ createInertiaApp({
         ),
     setup({ App, el, props, plugin }) {
         return createApp({ render: () => h(App, props) })
-        .use(plugin)
-        .mount(el);
+            .use(plugin)
+            .mount(el);
     },
 });
