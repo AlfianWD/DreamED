@@ -8,5 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/coming-soon', function() {
-    return Inertia::render('coming-soon');
+    return Inertia::render('announcement/coming-soon');
 });

@@ -1,8 +1,8 @@
 <script setup>
-import { Head, Link } from "@inertia/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 
-import Logo from "../../images/Logo.png";
-import IconContraction from "../../images/icon_contraction.svg";
+import Logo from "../../../images/Logo.png";
+import IconContraction from "../../../images/icon_contraction.svg";
 </script>
 
 <template>
