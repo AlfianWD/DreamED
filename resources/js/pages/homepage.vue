@@ -87,11 +87,13 @@ onUnmounted(() => {
                 class="hidden sm:flex gap-2 sm:gap-3 mt-3 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end font-normals"
             >
                 <Link
+                    href="/coming-soon"
                     class="border border-purple-500 text-purple-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
                 >
                     Sign In
                 </Link>
                 <Link
+                    href="/coming-soon"
                     class="bg-amber-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-amber-500 transition text-sm sm:text-base"
                 >
                     Sign Up
@@ -177,11 +179,13 @@ onUnmounted(() => {
             <!-- Button_CTA -->
             <div class="flex item-center gap-6 m-4">
                 <Link
+                    href="/coming-soon"
                     class="border border-black text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
                 >
                     Sign In
                 </Link>
                 <Link
+                    href="/coming-soon"
                     class="bg-black text-amber-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:text-white transition text-sm sm:text-base"
                 >
                     Sign Up
@@ -258,6 +262,7 @@ onUnmounted(() => {
                 Join now to start your educational journey
             </h2>
             <Link
+                href="/coming-soon"
                 class="inline-block mt-4 sm:mt-6 bg-amber-400 px-8 sm:px-10 py-2.5 sm:py-3 rounded-full font-semibold shadow-lg hover:bg-amber-500 transition text-sm sm:text-base"
             >
                 Join Now
