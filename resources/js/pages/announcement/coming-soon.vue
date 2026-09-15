@@ -13,20 +13,20 @@ import IconContraction from "../../../images/icon_contraction.svg";
         <div class="max-w-7xl mx-auto flex justify-center">
             <!-- Logo -->
             <img :src="Logo" alt="DreamED Logo" />
-
-            <!-- Icon -->
-            <div
-                class="w-[50px] h-[50px] bg-black"
-                :style="`mask: url(${IconContraction}) no-repeat center / contain; -webkit-mask: url(${IconContraction}) no-repeat center / contain;`"
-            ></div>
         </div>
 
-        <!-- Content Section -->
+        <!-- Main Content Section -->
         <main class="flex-1 flex items-center justify-center px-6">
             <!-- Content -->
             <section
                 class="w-full max-w-4xl text-center flex flex-col items-center"
             >
+                <!-- illustration -->
+                <div
+                    class="w-[50px] h-[50px] bg-black mb-8"
+                    :style="`mask: url(${IconContraction}) no-repeat center / contain; -webkit-mask: url(${IconContraction}) no-repeat center / contain;`"
+                ></div>
+
                 <!-- Tittle -->
                 <h1 class="text-5xl font-semibold text-black">Coming Soon</h1>
 
