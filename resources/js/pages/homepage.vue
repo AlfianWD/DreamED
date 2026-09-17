@@ -165,7 +165,7 @@ onUnmounted(() => {
                             class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                class="w-6 h-6 bg-black group-hover:bg-purple-500 shrink-0"
                                 :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
                             ></div>
                             <h3>Contact</h3>
