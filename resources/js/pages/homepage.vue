@@ -15,20 +15,21 @@ import IconHome from "../../images/icon_home.svg";
 import IconAbout from "../../images/icon_about.svg";
 import IconContact from "../../images/icon_contact.svg";
 
+//State to get data BtnScrolltoTop
+const btnBacktoTop = document.querySelector("#buttonBacktoTop");
+
 //State to control open/close sidebar
 const isSidebarOpen = ref(false);
-
 //State to control scroll
 const isScrolled = ref(false);
-
 // State Button Back to Up
 const scrollBack = ref(false);
 
+// State to detect scroll and check position scroll
 const handleScroll = () => {
     //State to actived glassmorphism effect if scroll > 20px
     isScrolled.value = window.scrollY > 20;
-
-    //State to check position scroll
+    //State to actived button if scroll > 20px
     scrollBack.value = window.scrollY > 20;
 };
 
@@ -39,6 +40,15 @@ const scrollToTop = () => {
         behavior: "smooth",
     });
 };
+
+// State Decision to Button ScrolltoTop
+// function manageBtnScrlBack(action) {
+//     if (action === "open") {
+//         btnBacktoTop.classList.add("hidden");
+//     } else {
+//         btnBacktoTop.classList.remove("hidden");
+//     }
+// }
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
@@ -198,10 +208,12 @@ onUnmounted(() => {
 
         <!-- Button_Back-to-Top  -->
         <button
+            id="butonBacktoTop"
             v-show="scrollBack"
             @click="scrollToTop"
             class="fixed flex flex-col items-center gap-2 group bottom-10 right-10 sm:bottom-20 sm:right-20 z-40 trasition-all duration-300 hover:scale-110 drop-shadow-sm"
             aria-label="buttonScrolltoTop"
+            :class="{ hidden: !isScrolled || isSidebarOpen }"
         >
             <i
                 class="fa-solid fa-circle-up text-[36px] text-amber-500 group-hover:text-amber-600 transition-color duration-300"
