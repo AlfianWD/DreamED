@@ -15,12 +15,16 @@ import IconHome from "../../images/icon_home.svg";
 import IconAbout from "../../images/icon_about.svg";
 import IconContact from "../../images/icon_contact.svg";
 
+const sections = document.querySelectorAll("#home, #about, #contact");
+
 //State to control open/close sidebar
 const isSidebarOpen = ref(false);
 //State to control scroll
 const isScrolled = ref(false);
 // State Button Back to Up
 const scrollBack = ref(false);
+
+const activeSection = ref("home");
 
 // State to detect scroll and check position scroll
 const handleScroll = () => {
@@ -37,6 +41,23 @@ const scrollToTop = () => {
         behavior: "smooth",
     });
 };
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                activeSection.value = entry.target.id;
+            }
+        });
+    },
+    {
+        threshold: 0.5,
+    },
+);
+
+sections.forEach((section) => {
+    observer.observe(section);
+});
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
@@ -136,10 +157,21 @@ onUnmounted(() => {
                     <li>
                         <a
                             href="#home"
-                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            :class="[
+                                'flex items-center gap-4 px-4 py-2.5 rounded-full  group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'home'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
+                            @click="activeSection = 'home'"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :class="[
+                                    'w-[24px] h-[24px] flex-shrink-0 nav-icon',
+                                    activeSection === 'home'
+                                        ? 'text-purple-500 bg-black'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconHome}) no-repeat center / contain; -webkit-mask: url(${IconHome}) no-repeat center / contain;`"
                             ></div>
                             <h3>Home</h3>
@@ -148,10 +180,21 @@ onUnmounted(() => {
                     <li>
                         <a
                             href="#about"
-                            class="flex items-center gap-3 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            :class="[
+                                'flex items-center gap-3 px-4 py-2.5 rounded-full group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'about'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
+                            @click="activeSection = 'about'"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :class="[
+                                    'w-[24px] h-[24px] flex-shrink-0 nav-icon',
+                                    activeSection === 'about'
+                                        ? 'text-purple-500 bg-black'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconAbout}) no-repeat center / contain; -webkit-mask: url(${IconAbout}) no-repeat center / contain;`"
                             ></div>
                             <h3>About</h3>
@@ -160,10 +203,20 @@ onUnmounted(() => {
                     <li>
                         <a
                             href="#contact"
-                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            :class="[
+                                'flex items-center gap-4 px-4 py-2.5 rounded-full group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'contact'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
                         >
                             <div
-                                class="w-6 h-6 bg-black group-hover:bg-purple-500 shrink-0"
+                                :class="[
+                                    'w-6 h-6 shrink-0 nav-icon',
+                                    activeSection === 'contact'
+                                        ? 'text-purple-500 bg-black'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
                             ></div>
                             <h3>Contact</h3>
@@ -420,5 +473,8 @@ onUnmounted(() => {
 }
 .animate-fade-up {
     animation: fade-up 0.8s ease forwards;
+}
+
+.active {
 }
 </style>
