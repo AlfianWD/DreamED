@@ -15,9 +15,6 @@ import IconHome from "../../images/icon_home.svg";
 import IconAbout from "../../images/icon_about.svg";
 import IconContact from "../../images/icon_contact.svg";
 
-//State to get data BtnScrolltoTop
-const btnBacktoTop = document.querySelector("#buttonBacktoTop");
-
 //State to control open/close sidebar
 const isSidebarOpen = ref(false);
 //State to control scroll
@@ -40,15 +37,6 @@ const scrollToTop = () => {
         behavior: "smooth",
     });
 };
-
-// State Decision to Button ScrolltoTop
-// function manageBtnScrlBack(action) {
-//     if (action === "open") {
-//         btnBacktoTop.classList.add("hidden");
-//     } else {
-//         btnBacktoTop.classList.remove("hidden");
-//     }
-// }
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
