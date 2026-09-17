@@ -90,7 +90,7 @@ onUnmounted(() => {
             <!-- Menu -->
             <ul class="hidden sm:flex gap-6 font-semibold text-gray-700">
                 <li>
-                    <a href="#home" class="hover:text-purple-500 transition"
+                    <a href="/" class="hover:text-purple-500 transition"
                         >Home</a
                     >
                 </li>
@@ -161,7 +161,7 @@ onUnmounted(() => {
                 <ul class="flex flex-col gap-4 font-semibold text-black">
                     <li>
                         <a
-                            href="#home"
+                            href="/"
                             :class="[
                                 'flex items-center gap-4 px-4 py-2.5 rounded-full  group transition-colors duration-200 w-fit nav-link',
                                 activeSection === 'home'
