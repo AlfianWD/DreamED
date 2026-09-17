@@ -80,7 +80,9 @@ onUnmounted(() => {
             ]"
         >
             <!-- Logo -->
-            <img :src="Logo" alt="DreamED Logo" class="h-12 sm:h-16 w-auto" />
+            <a href="/" class="h-12 sm:h-16 w-auto">
+                <img :src="Logo" alt="DreamED Logo" />
+            </a>
 
             <!-- Menu -->
             <ul class="hidden sm:flex gap-6 font-semibold text-gray-700">
