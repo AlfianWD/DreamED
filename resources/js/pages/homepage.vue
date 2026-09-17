@@ -216,7 +216,7 @@ onUnmounted(() => {
                                 :class="[
                                     'w-6 h-6 bg-black shrink-0 nav-icon',
                                     activeSection === 'contact'
-                                        ? 'text-purple-500'
+                                        ? 'bg-purple-500'
                                         : 'group-hover:bg-purple-500',
                                 ]"
                                 :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
