@@ -40,6 +40,9 @@ const scrollToTop = () => {
         top: 0,
         behavior: "smooth",
     });
+    activeSection.value = "home";
+
+    history.replaceState(null, "", window.location.pathname);
 };
 
 const observer = new IntersectionObserver(
@@ -211,6 +214,7 @@ onUnmounted(() => {
                                     ? 'text-purple-500 bg-black shadow-lg'
                                     : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
                             ]"
+                            @click="activeSection = 'contact'"
                         >
                             <div
                                 :class="[
