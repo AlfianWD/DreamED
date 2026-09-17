@@ -15,20 +15,22 @@ import IconHome from "../../images/icon_home.svg";
 import IconAbout from "../../images/icon_about.svg";
 import IconContact from "../../images/icon_contact.svg";
 
+const sections = document.querySelectorAll("#home, #about, #contact");
+
 //State to control open/close sidebar
 const isSidebarOpen = ref(false);
-
 //State to control scroll
 const isScrolled = ref(false);
-
 // State Button Back to Up
 const scrollBack = ref(false);
 
+const activeSection = ref("home");
+
+// State to detect scroll and check position scroll
 const handleScroll = () => {
     //State to actived glassmorphism effect if scroll > 20px
     isScrolled.value = window.scrollY > 20;
-
-    //State to check position scroll
+    //State to actived button if scroll > 20px
     scrollBack.value = window.scrollY > 20;
 };
 
@@ -38,7 +40,27 @@ const scrollToTop = () => {
         top: 0,
         behavior: "smooth",
     });
+    activeSection.value = "home";
+
+    history.replaceState(null, "", window.location.pathname);
 };
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                activeSection.value = entry.target.id;
+            }
+        });
+    },
+    {
+        threshold: 0.1,
+    },
+);
+
+sections.forEach((section) => {
+    observer.observe(section);
+});
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
@@ -61,12 +83,14 @@ onUnmounted(() => {
             ]"
         >
             <!-- Logo -->
-            <img :src="Logo" alt="DreamED Logo" class="h-12 sm:h-16 w-auto" />
+            <a href="/" class="h-12 sm:h-16 w-auto">
+                <img :src="Logo" alt="DreamED Logo" />
+            </a>
 
             <!-- Menu -->
             <ul class="hidden sm:flex gap-6 font-semibold text-gray-700">
                 <li>
-                    <a href="#home" class="hover:text-purple-500 transition"
+                    <a href="/" class="hover:text-purple-500 transition"
                         >Home</a
                     >
                 </li>
@@ -139,11 +163,22 @@ onUnmounted(() => {
                 <ul class="flex flex-col gap-4 font-semibold text-black">
                     <li>
                         <a
-                            href="#home"
-                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            href="/"
+                            :class="[
+                                'flex items-center gap-4 px-4 py-2.5 rounded-full  group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'home'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
+                            @click="activeSection = 'home'"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :class="[
+                                    'w-[24px] h-[24px] bg-black flex-shrink-0 nav-icon',
+                                    activeSection === 'home'
+                                        ? 'bg-purple-500'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconHome}) no-repeat center / contain; -webkit-mask: url(${IconHome}) no-repeat center / contain;`"
                             ></div>
                             <h3>Home</h3>
@@ -152,10 +187,21 @@ onUnmounted(() => {
                     <li>
                         <a
                             href="#about"
-                            class="flex items-center gap-3 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            :class="[
+                                'flex items-center gap-3 px-4 py-2.5 rounded-full group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'about'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
+                            @click="activeSection = 'about'"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :class="[
+                                    'w-[24px] h-[24px] bg-black flex-shrink-0 nav-icon',
+                                    activeSection === 'about'
+                                        ? 'bg-purple-500'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconAbout}) no-repeat center / contain; -webkit-mask: url(${IconAbout}) no-repeat center / contain;`"
                             ></div>
                             <h3>About</h3>
@@ -164,10 +210,21 @@ onUnmounted(() => {
                     <li>
                         <a
                             href="#contact"
-                            class="flex items-center gap-4 px-4 py-2.5 rounded-full hover:text-purple-500 hover:bg-black hover:shadow-lg group transition-colors duration-200 w-fit"
+                            :class="[
+                                'flex items-center gap-4 px-4 py-2.5 rounded-full group transition-colors duration-200 w-fit nav-link',
+                                activeSection === 'contact'
+                                    ? 'text-purple-500 bg-black shadow-lg'
+                                    : 'hover:text-purple-500 hover:bg-black hover:shadow-lg',
+                            ]"
+                            @click="activeSection = 'contact'"
                         >
                             <div
-                                class="w-[24px] h-[24px] bg-black group-hover:bg-purple-500 flex-shrink-0"
+                                :class="[
+                                    'w-6 h-6 bg-black shrink-0 nav-icon',
+                                    activeSection === 'contact'
+                                        ? 'bg-purple-500'
+                                        : 'group-hover:bg-purple-500',
+                                ]"
                                 :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
                             ></div>
                             <h3>Contact</h3>
@@ -202,10 +259,12 @@ onUnmounted(() => {
 
         <!-- Button_Back-to-Top  -->
         <button
+            id="butonBacktoTop"
             v-show="scrollBack"
             @click="scrollToTop"
             class="fixed flex flex-col items-center gap-2 group bottom-10 right-10 sm:bottom-20 sm:right-20 z-40 trasition-all duration-300 hover:scale-110 drop-shadow-sm"
             aria-label="buttonScrolltoTop"
+            :class="{ hidden: !isScrolled || isSidebarOpen }"
         >
             <i
                 class="fa-solid fa-circle-up text-[36px] text-amber-500 group-hover:text-amber-600 transition-color duration-300"
