@@ -51,7 +51,7 @@ const observer = new IntersectionObserver(
         });
     },
     {
-        threshold: 0.5,
+        threshold: 0.1,
     },
 );
 
@@ -167,9 +167,9 @@ onUnmounted(() => {
                         >
                             <div
                                 :class="[
-                                    'w-[24px] h-[24px] flex-shrink-0 nav-icon',
+                                    'w-[24px] h-[24px] bg-black flex-shrink-0 nav-icon',
                                     activeSection === 'home'
-                                        ? 'text-purple-500 bg-black'
+                                        ? 'bg-purple-500'
                                         : 'group-hover:bg-purple-500',
                                 ]"
                                 :style="`mask: url(${IconHome}) no-repeat center / contain; -webkit-mask: url(${IconHome}) no-repeat center / contain;`"
@@ -190,9 +190,9 @@ onUnmounted(() => {
                         >
                             <div
                                 :class="[
-                                    'w-[24px] h-[24px] flex-shrink-0 nav-icon',
+                                    'w-[24px] h-[24px] bg-black flex-shrink-0 nav-icon',
                                     activeSection === 'about'
-                                        ? 'text-purple-500 bg-black'
+                                        ? 'bg-purple-500'
                                         : 'group-hover:bg-purple-500',
                                 ]"
                                 :style="`mask: url(${IconAbout}) no-repeat center / contain; -webkit-mask: url(${IconAbout}) no-repeat center / contain;`"
@@ -212,9 +212,9 @@ onUnmounted(() => {
                         >
                             <div
                                 :class="[
-                                    'w-6 h-6 shrink-0 nav-icon',
+                                    'w-6 h-6 bg-black shrink-0 nav-icon',
                                     activeSection === 'contact'
-                                        ? 'text-purple-500 bg-black'
+                                        ? 'text-purple-500'
                                         : 'group-hover:bg-purple-500',
                                 ]"
                                 :style="`mask: url(${IconContact}) no-repeat center / contain; -webkit-mask: url(${IconContact}) no-repeat center / contain;`"
@@ -473,8 +473,5 @@ onUnmounted(() => {
 }
 .animate-fade-up {
     animation: fade-up 0.8s ease forwards;
-}
-
-.active {
 }
 </style>
