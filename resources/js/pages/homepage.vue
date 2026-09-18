@@ -236,7 +236,7 @@ onUnmounted(() => {
             <!-- Button_CTA -->
             <div class="flex item-center gap-6 m-4">
                 <Link
-                    href="/coming-soon"
+                    href="/login"
                     class="border border-black text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
                 >
                     Sign In
