@@ -10,3 +10,7 @@ Route::get('/', function () {
 Route::get('/coming-soon', function() {
     return Inertia::render('announcement/coming-soon');
 });
+
+Route::get('/login', function() {
+    return Inertia::render('auth/login');
+});
