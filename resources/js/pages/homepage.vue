@@ -111,7 +111,7 @@ onUnmounted(() => {
                 class="hidden sm:flex gap-2 sm:gap-3 mt-3 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end font-normals"
             >
                 <Link
-                    href="/coming-soon"
+                    href="/login"
                     class="border border-purple-500 text-purple-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
                 >
                     Sign In
@@ -236,7 +236,7 @@ onUnmounted(() => {
             <!-- Button_CTA -->
             <div class="flex item-center gap-6 m-4">
                 <Link
-                    href="/coming-soon"
+                    href="/login"
                     class="border border-black text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-500 hover:text-white transition text-sm sm:text-base"
                 >
                     Sign In
