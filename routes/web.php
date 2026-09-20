@@ -15,6 +15,6 @@ Route::get('/login', function() {
     return Inertia::render('auth/login');
 });
 
-Route::get('/', function() {
+Route::get('/register', function() {
     return Inertia::render('auth/register');
 });
