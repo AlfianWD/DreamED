@@ -14,3 +14,7 @@ Route::get('/coming-soon', function() {
 Route::get('/login', function() {
     return Inertia::render('auth/login');
 });
+
+Route::get('/', function() {
+    return Inertia::render('auth/register');
+});
