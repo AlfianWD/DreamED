@@ -19,5 +19,35 @@
                 >
             </div>
         </div>
+
+        <!-- Right Panel -->
+        <div class="w-full md:w-1/2 min-h-screen p-8 md:p-10">
+            <!-- Header Section -->
+            <div
+                class="left-0 right-0 flex flex-wrap items-center justify-between mb-16 md:mb-10"
+            >
+                <!-- Tittle -->
+                <h1 class="text-[22px] font-bold">Welcome</h1>
+
+                <!-- Btn-Back -->
+                <a href="/" class="flex items-end">
+                    <div
+                        class="w-[30px] h-[30px] transition duration-300 bg-black hover:bg-purple-500 hover:scale-110 active:scale-90 cursor-pointer"
+                        :style="`mask: url(${btnBack}) no-repeat center / contain; -webkit-mask: url(${btnBack}) no-repeat center / contain;`"
+                    ></div>
+                </a>
+            </div>
+
+            <!-- Marker Form -->
+            <div class="flex items-start md:items-center">
+                <!-- Step Circle -->
+                <div
+                    class="rounded-full w-[30px] h-[30px] border-amber-500 font-semibold items-center justify-center border-2"
+                ></div>
+
+                <!-- Connector -->
+                <div class="mx-2 h-0.5 w-12"></div>
+            </div>
+        </div>
     </div>
 </template>
