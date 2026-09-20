@@ -1,6 +1,20 @@
 <script setup>
+import { computed, ref } from "vue";
+
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
+
+const currentStep = ref(1);
+
+const steps = [
+    { id: 1, label: "Basic Info" },
+    { id: 2, label: "Password" },
+    { id: 3, label: "Role" },
+];
+
+const currentStepData = computed(() => {
+    return steps.find((step) => step.id === currentStep.value);
+});
 </script>
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden md:flex">
@@ -43,13 +57,49 @@ import illustrationLearn from "../../../images/illustration_learn.png";
 
             <!-- Marker Form -->
             <div class="flex items-start md:items-center">
-                <!-- Step Circle -->
-                <div
-                    class="rounded-full w-[30px] h-[30px] border-amber-500 font-semibold items-center justify-center border-2"
-                ></div>
+                <template v-for="(step, index) in steps" :key="step.id">
+                    <div class="flex flex-col items-center">
+                        <!-- Step Circle -->
+                        <div
+                            class="flex rounded-full w-[30px] h-[30px] font-semibold items-center justify-center border-2"
+                            :class="{
+                                'border-black bg-amber-500 text-black':
+                                    currentStep > step.id,
 
-                <!-- Connector -->
-                <div class="mx-2 h-0.5 w-12"></div>
+                                'border-amber-500 text-amber-500':
+                                    currentStep == step.id,
+
+                                'border-gray-500 text-gray-500':
+                                    currentStep < step.id,
+                            }"
+                        >
+                            <span v-if="currentStep > step.id"> ✓ </span>
+                            <span v-else>
+                                {{ step.id }}
+                            </span>
+                        </div>
+
+                        <span
+                            class="mt-2 text-xs font-reguler"
+                            :class="{
+                                'text-amber-500': currentStep >= step.id,
+                                'text-gray-500': currentStep < step.id,
+                            }"
+                        >
+                            {{ step.label }}</span
+                        >
+                    </div>
+
+                    <!-- Connector -->
+                    <div
+                        v-if="index < steps.length - 1"
+                        class="flex mx-2 h-0.5 w-12"
+                        :class="{
+                            'bg-amber-500': currentStep > step.id,
+                            'bg-gray-500': currentStep <= step.id,
+                        }"
+                    ></div>
+                </template>
             </div>
         </div>
     </div>
