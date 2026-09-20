@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import btnBack from "../../../images/button_back.svg";
+import illustrationLearn from "../../../images/illustration_learn.png";
+</script>
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden md:flex">
         <!-- Left Panel -->
