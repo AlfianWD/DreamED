@@ -46,7 +46,7 @@ const currentStepData = computed(() => {
                 class="left-0 right-0 flex flex-wrap items-center justify-between mb-16 md:mb-10"
             >
                 <!-- Tittle -->
-                <h1 class="text-[22px] font-bold">Welcome</h1>
+                <h1 class="text-[22px] font-bold">Create Account</h1>
 
                 <!-- Btn-Back -->
                 <a href="/" class="flex items-end">
