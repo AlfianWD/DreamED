@@ -56,7 +56,7 @@ const currentStepData = computed(() => {
             </div>
 
             <!-- Marker Form -->
-            <div class="flex items-start md:items-center">
+            <div class="flex items-start">
                 <template v-for="(step, index) in steps" :key="step.id">
                     <div class="flex flex-col items-center">
                         <!-- Step Circle -->
@@ -93,7 +93,7 @@ const currentStepData = computed(() => {
                     <!-- Connector -->
                     <div
                         v-if="index < steps.length - 1"
-                        class="flex mx-2 h-0.5 w-12"
+                        class="mx-4 mt-0.1 h-0.5 w-12 shrink-0 translate-y-[14px]"
                         :class="{
                             'bg-amber-500': currentStep > step.id,
                             'bg-gray-500': currentStep <= step.id,
