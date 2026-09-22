@@ -58,7 +58,7 @@ const currentStepData = computed(() => {
             </div>
 
             <!-- Marker Form -->
-            <div class="flex items-start">
+            <div class="flex items-start justify-center md:justify-start">
                 <template v-for="(step, index) in steps" :key="step.id">
                     <div class="flex flex-col items-center">
                         <!-- Step Circle -->

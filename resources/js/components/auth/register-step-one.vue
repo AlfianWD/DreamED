@@ -1,9 +1,9 @@
 <template>
     <div class="ml-2">
         <form>
-            <div class="flex flex-row mt-10 gap-12">
+            <div class="flex flex-col mt-14 md:mt-10 md:flex-row md:gap-12">
                 <!-- First Name -->
-                <div class="mb-4">
+                <div class="mb-4 w-full">
                     <label
                         class="block text-[20px] font-semibold mb-4"
                         for="first-name"
@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- Last Name -->
-                <div class="mb-4">
+                <div class="mb-4 w-full">
                     <label
                         class="block text-[20px] font-semibold mb-4"
                         for="last-name"
