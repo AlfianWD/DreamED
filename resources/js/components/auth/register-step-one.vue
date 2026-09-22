@@ -1,7 +1,7 @@
 <template>
     <div class="ml-2">
         <form>
-            <div class="flex flex-row mb-4">
+            <div class="flex flex-row mt-8 gap-12">
                 <!-- First Name -->
                 <div class="mb-4">
                     <label
@@ -14,6 +14,7 @@
                         id="first-name"
                         class="shadow border border-amber-500 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none"
                         type="text"
+                        placeholder="Input First Name"
                     />
                 </div>
 
@@ -29,6 +30,7 @@
                         id="last-name"
                         class="shadow border border-amber-500 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none"
                         type="text"
+                        placeholder="Input Last Name"
                     />
                 </div>
             </div>
