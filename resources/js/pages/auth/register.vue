@@ -1,6 +1,8 @@
 <script setup>
 import { computed, ref } from "vue";
 
+import registerStepOne from "@/components/auth/register-step-one.vue";
+
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
 
@@ -101,6 +103,9 @@ const currentStepData = computed(() => {
                     ></div>
                 </template>
             </div>
+
+            <!-- Step One -->
+            <registerStepOne />
         </div>
     </div>
 </template>
