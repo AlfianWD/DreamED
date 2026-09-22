@@ -117,7 +117,7 @@ onUnmounted(() => {
                     Sign In
                 </Link>
                 <Link
-                    href="/coming-soon"
+                    href="/register"
                     class="bg-amber-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-amber-500 transition text-sm sm:text-base"
                 >
                     Sign Up
@@ -242,7 +242,7 @@ onUnmounted(() => {
                     Sign In
                 </Link>
                 <Link
-                    href="/coming-soon"
+                    href="/register"
                     class="bg-black text-amber-500 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:text-white transition text-sm sm:text-base"
                 >
                     Sign Up
@@ -321,7 +321,7 @@ onUnmounted(() => {
                 Join now to start your educational journey
             </h2>
             <Link
-                href="/coming-soon"
+                href="/register"
                 class="inline-block mt-4 sm:mt-6 bg-amber-400 px-8 sm:px-10 py-2.5 sm:py-3 rounded-full font-semibold shadow-lg hover:bg-amber-500 transition text-sm sm:text-base"
             >
                 Join Now

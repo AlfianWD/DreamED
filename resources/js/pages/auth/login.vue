@@ -136,7 +136,7 @@ import illustrationLearn from "../../../images/illustration_learn.png";
                     <div class="flex items-center justify-center gap-2 mt-12">
                         <span>Don't have a account?</span>
                         <a
-                            href="/coming-soon"
+                            href="/register"
                             class="font-semibold hover:text-purple-500"
                             >Create Account</a
                         >
