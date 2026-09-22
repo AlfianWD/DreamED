@@ -1,7 +1,7 @@
 <template>
     <div class="ml-2">
         <form>
-            <div class="flex flex-row mt-8 gap-12">
+            <div class="flex flex-row mt-10 gap-12">
                 <!-- First Name -->
                 <div class="mb-4">
                     <label
@@ -46,6 +46,18 @@
                     type="email"
                     placeholder="Enter your email address"
                 />
+            </div>
+
+            <!-- Btn Next -->
+            <div class="flex justify-end mt-20">
+                <a href="/coming-soon">
+                    <button
+                        class="bg-purple-500 text-white hover:bg-purple-800 hover:text-white font-reguler py-2 px-20 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
+                        type="button"
+                    >
+                        Next
+                    </button>
+                </a>
             </div>
         </form>
     </div>
