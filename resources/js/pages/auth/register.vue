@@ -1,6 +1,8 @@
 <script setup>
 import { computed, ref } from "vue";
 
+import registerStepOne from "@/components/auth/register-step-one.vue";
+
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
 
@@ -44,7 +46,7 @@ const currentStepData = computed(() => {
                 class="left-0 right-0 flex flex-wrap items-center justify-between mb-16 md:mb-10"
             >
                 <!-- Tittle -->
-                <h1 class="text-[22px] font-bold">Welcome</h1>
+                <h1 class="text-[22px] font-bold">Create Account</h1>
 
                 <!-- Btn-Back -->
                 <a href="/" class="flex items-end">
@@ -56,7 +58,7 @@ const currentStepData = computed(() => {
             </div>
 
             <!-- Marker Form -->
-            <div class="flex items-start">
+            <div class="flex items-start justify-center md:justify-start">
                 <template v-for="(step, index) in steps" :key="step.id">
                     <div class="flex flex-col items-center">
                         <!-- Step Circle -->
@@ -101,6 +103,9 @@ const currentStepData = computed(() => {
                     ></div>
                 </template>
             </div>
+
+            <!-- Step One -->
+            <registerStepOne />
         </div>
     </div>
 </template>
