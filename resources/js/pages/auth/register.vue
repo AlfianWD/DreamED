@@ -34,7 +34,7 @@ const nextStep = () => {
 };
 
 const backStep = () => {
-    if (currentStep.value > steps.lenght) {
+    if (currentStep.value > 1) {
         currentStep.value--;
     }
 };
