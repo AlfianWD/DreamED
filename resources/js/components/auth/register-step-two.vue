@@ -34,10 +34,10 @@
             </div>
 
             <!-- Btn Back & Next -->
-            <div class="flex flex-row mt-20">
+            <div class="flex flex-row mt-20 gap-6">
                 <!-- Btn Back -->
                 <button
-                    class="bg-amber-500 text-black hover:bg-amber-800 hover:text-white font-reguler py-2 px-20 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
+                    class="bg-amber-500 text-black hover:bg-amber-800 hover:text-white font-reguler py-2 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
                     type="submit"
                 >
                     Back
@@ -45,7 +45,7 @@
 
                 <!-- Btn Next -->
                 <button
-                    class="bg-purple-500 text-white hover:bg-purple-800 hover:text-white font-reguler py-2 px-20 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
+                    class="bg-purple-500 text-white hover:bg-purple-800 hover:text-white font-reguler py-2 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
                     type="submit"
                 >
                     Next
