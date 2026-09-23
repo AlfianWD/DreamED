@@ -1,3 +1,12 @@
+<script setup>
+const model = defineModel({
+    type: object,
+    required: true,
+});
+
+const emit = defineEmits(["next"]);
+</script>
+
 <template>
     <div class="ml-2">
         <form>
