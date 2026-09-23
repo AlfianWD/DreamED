@@ -1,12 +1,23 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, reactive } from "vue";
 
 import registerStepOne from "@/components/auth/register-step-one.vue";
+import registerStepTwo from "@/components/auth/register-step-two.vue";
+import registerStepThree from "@/components/auth/register-step-three.vue";
 
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
 
 const currentStep = ref(1);
+
+const form = reactive({
+    firstName: "",
+    lastName: "",
+    Email: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
+});
 
 const steps = [
     { id: 1, label: "Basic Info" },
@@ -17,6 +28,24 @@ const steps = [
 const currentStepData = computed(() => {
     return steps.find((step) => step.id === currentStep.value);
 });
+
+const nextStep = () => {
+    console.log("Data step yang diterima:", form);
+
+    if (currentStep.value < steps.length) {
+        currentStep.value++;
+    }
+};
+
+const backStep = () => {
+    if (currentStep.value > 1) {
+        currentStep.value--;
+    }
+};
+
+const submitForm = () => {
+    console.log("Data step yang diterima:", form);
+};
 </script>
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden md:flex">
@@ -105,7 +134,27 @@ const currentStepData = computed(() => {
             </div>
 
             <!-- Step One -->
-            <registerStepOne />
+            <registerStepOne
+                v-if="currentStep === 1"
+                v-model="form"
+                @next="nextStep"
+            />
+
+            <!-- Step Two -->
+            <registerStepTwo
+                v-if="currentStep === 2"
+                v-model="form"
+                @next="nextStep"
+                @back="backStep"
+            />
+
+            <!-- Step Three -->
+            <registerStepThree
+                v-if="currentStep === 3"
+                v-model="form"
+                @submit="submitForm"
+                @back="backStep"
+            />
         </div>
     </div>
 </template>
