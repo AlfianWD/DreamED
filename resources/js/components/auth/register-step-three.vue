@@ -11,11 +11,11 @@ const emit = defineEmits(["Sign In", "Back"]);
 
 const selectRole = (role) => {
     model.value.role = role;
-    console.log("Role dipilih:", model.value.role);
+    // console.log("Role dipilih:", model.value.role);
 };
 
 const roleForm = () => {
-    console.log("Data terkirim:", model.value);
+    // console.log("Data terkirim:", model.value.role);
     emit("Sign In");
 };
 

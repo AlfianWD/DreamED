@@ -42,6 +42,10 @@ const backStep = () => {
         currentStep.value--;
     }
 };
+
+const submitForm = () => {
+    console.log("Data step yang diterima:", form);
+};
 </script>
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden md:flex">
@@ -148,6 +152,7 @@ const backStep = () => {
             <registerStepThree
                 v-if="currentStep === 3"
                 v-model="form"
+                @submit="submitForm"
                 @back="backStep"
             />
         </div>
