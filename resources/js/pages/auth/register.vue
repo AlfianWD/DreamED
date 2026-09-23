@@ -3,6 +3,7 @@ import { computed, ref, reactive } from "vue";
 
 import registerStepOne from "@/components/auth/register-step-one.vue";
 import registerStepTwo from "@/components/auth/register-step-two.vue";
+import registerStepThree from "@/components/auth/register-step-three.vue";
 
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
@@ -137,6 +138,13 @@ const backStep = () => {
                 v-if="currentStep === 2"
                 v-model="form"
                 @next="nextStep"
+                @back="backStep"
+            />
+
+            <!-- Step Three -->
+            <registerStepThree
+                v-if="currentStep === 3"
+                v-model="form"
                 @back="backStep"
             />
         </div>
