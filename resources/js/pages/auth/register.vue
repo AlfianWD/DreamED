@@ -2,6 +2,7 @@
 import { computed, ref, reactive } from "vue";
 
 import registerStepOne from "@/components/auth/register-step-one.vue";
+import registerStepTwo from "@/components/auth/register-step-two.vue";
 
 import btnBack from "../../../images/button_back.svg";
 import illustrationLearn from "../../../images/illustration_learn.png";
@@ -124,6 +125,9 @@ const nextStep = () => {
                 v-model="form"
                 @next="nextStep"
             />
+
+            <!-- Step Two -->
+            <registerStepTwo v-if="currentStep === 2" />
         </div>
     </div>
 </template>
