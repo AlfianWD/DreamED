@@ -9,6 +9,10 @@ const emit = defineEmits(["next"]);
 const passwordForm = () => {
     emit("Next");
 };
+
+const handleBack = () => {
+    emit("Back");
+};
 </script>
 
 <template>
@@ -54,6 +58,7 @@ const passwordForm = () => {
                 <button
                     class="bg-amber-500 text-black hover:bg-amber-800 hover:text-white font-reguler py-2 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
                     type="submit"
+                    @click="handleBack"
                 >
                     Back
                 </button>
