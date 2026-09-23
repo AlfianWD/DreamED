@@ -57,7 +57,7 @@ const handleBack = () => {
                 <!-- Btn Back -->
                 <button
                     class="bg-amber-500 text-black hover:bg-amber-800 hover:text-white font-reguler py-2 rounded-lg w-full border border-black focus:outline-none focus:shadow-outline"
-                    type="submit"
+                    type="button"
                     @click="handleBack"
                 >
                     Back
