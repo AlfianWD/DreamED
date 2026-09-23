@@ -14,6 +14,9 @@ const form = reactive({
     firstName: "",
     lastName: "",
     Email: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
 });
 
 const steps = [
