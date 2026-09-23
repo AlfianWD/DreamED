@@ -4,7 +4,7 @@ const model = defineModel({
     required: true,
 });
 
-const emit = defineEmits(["next"]);
+const emit = defineEmits(["next", "back"]);
 
 const passwordForm = () => {
     emit("Next");
