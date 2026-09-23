@@ -1,15 +1,19 @@
 <script setup>
 const model = defineModel({
-    type: object,
+    type: Object,
     required: true,
 });
 
 const emit = defineEmits(["next"]);
+
+const passwordForm = () => {
+    emit("Next");
+};
 </script>
 
 <template>
     <div class="ml-2">
-        <form>
+        <form @submit.prevent="passwordForm">
             <div class="flex flex-col mt-14">
                 <!-- Password -->
                 <div class="mb-6">
@@ -20,6 +24,7 @@ const emit = defineEmits(["next"]);
                     >
                     <input
                         id="password"
+                        v-model="model.password"
                         class="shadow border border-amber-500 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none"
                         type="password"
                         placeholder="Enter your password"
@@ -35,6 +40,7 @@ const emit = defineEmits(["next"]);
                     >
                     <input
                         id="Confirm-password"
+                        v-model="model.confirmPassword"
                         class="shadow border border-amber-500 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none"
                         type="password"
                         placeholder="Enter your password again"

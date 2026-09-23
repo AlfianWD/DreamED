@@ -32,6 +32,12 @@ const nextStep = () => {
         currentStep.value++;
     }
 };
+
+const backStep = () => {
+    if (currentStep.value === steps.lenght) {
+        currentStep.value--;
+    }
+};
 </script>
 <template>
     <div class="min-h-screen bg-white overflow-x-hidden md:flex">
@@ -127,7 +133,12 @@ const nextStep = () => {
             />
 
             <!-- Step Two -->
-            <registerStepTwo v-if="currentStep === 2" />
+            <registerStepTwo
+                v-if="currentStep === 2"
+                v-model="form"
+                @next="nextStep"
+                @back="backStep"
+            />
         </div>
     </div>
 </template>
